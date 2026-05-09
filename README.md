@@ -32,11 +32,19 @@ Coupled with a **Unified SOC Dashboard**, it provides blue teamers and security 
 
 Ensure you have Python 3.8 or newer installed.
 
+
 # Clone the repository
 git clone https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git
 cd SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System
 
-Running the Engine
+# Install required dependencies
+pip install -r requirements.txt
+
+# Clone the repository
+git clone https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git
+cd SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System
+
+# Running the Engine
 Launch the primary WSGI/Flask security engine:
 
 Bash
@@ -62,7 +70,8 @@ Plaintext
 admin' OR 1=1 --
 Result: The heuristic math catches the short-string bypass attempt, logs the exact parameter risk score, and immediately serves a 403 Forbidden restriction.
 
-📂 Repository Structure
+# 📂 Repository Structure
+Plaintext
 ├── app.py                   # Core engine, WAF middleware, and API endpoints
 ├── requirements.txt         # Project dependencies (Flask, Requests, etc.)
 ├── security.log             # Disk read/write telemetry event log
@@ -70,11 +79,11 @@ Result: The heuristic math catches the short-string bypass attempt, logs the exa
 └── templates/
     ├── index.html           # Interactive target validation portals
     └── dashboard.html       # Anti-caching Unified SOC Dashboard interface
-⚠️ Educational Disclaimer
+# ⚠️ Educational Disclaimer
 This repository is developed strictly for educational research, defensive framework engineering, and authorized local testing environments. The author assumes no liability for unauthorized deployment or misconfiguration on production networks. Always ensure you have explicit written consent before actively probing external infrastructure.
 
-📜 License
+# 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details. Feel free to fork, modify, integrate, and adapt this framework into your own defensive pipelines.
 
-👨‍💻 Author
+# 👨‍💻 Author
 Sarandeep Singh Cybersecurity Researcher
