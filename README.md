@@ -36,12 +36,6 @@ Ensure you have Python 3.8 or newer installed.
 git clone https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git
 cd SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System
 
-# Create a clean virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
-
-# Install required dependencies
-pip install -r requirements.txt
 Running the Engine
 Launch the primary WSGI/Flask security engine:
 
@@ -69,7 +63,6 @@ admin' OR 1=1 --
 Result: The heuristic math catches the short-string bypass attempt, logs the exact parameter risk score, and immediately serves a 403 Forbidden restriction.
 
 📂 Repository Structure
-Plaintext
 ├── app.py                   # Core engine, WAF middleware, and API endpoints
 ├── requirements.txt         # Project dependencies (Flask, Requests, etc.)
 ├── security.log             # Disk read/write telemetry event log
@@ -84,4 +77,4 @@ This repository is developed strictly for educational research, defensive framew
 This project is licensed under the MIT License - see the LICENSE file for details. Feel free to fork, modify, integrate, and adapt this framework into your own defensive pipelines.
 
 👨‍💻 Author
-Sandeep Singh Cybersecurity Researcher
+Sarandeep Singh Cybersecurity Researcher
