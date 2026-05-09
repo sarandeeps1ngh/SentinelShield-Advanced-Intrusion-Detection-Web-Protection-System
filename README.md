@@ -32,45 +32,65 @@ Coupled with a **Unified SOC Dashboard**, it provides blue teamers and security 
 
 Ensure you have Python 3.8 or newer installed.
 
-
+```bash
 # Clone the repository
-git clone https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git
+git clone [https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git](https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git)
 cd SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System
+
+# Create a clean virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
 # Install required dependencies
 pip install -r requirements.txt
 
-# Clone the repository
-git clone https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git
-cd SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System
+```
 
-# Running the Engine
+### Running the Engine
+
 Launch the primary WSGI/Flask security engine:
 
-Bash
+```bash
 python app.py
-Target Application Portal: http://127.0.0.1:5000/
 
-Live SOC Dashboard: http://127.0.0.1:5000/dashboard
+```
 
-🧪 Verifying Defenses (Test Flights)
+* **Target Application Portal:** `http://127.0.0.1:5000/`
+* **Live SOC Dashboard:** `http://127.0.0.1:5000/dashboard`
+
+---
+
+## 🧪 Verifying Defenses (Test Flights)
+
 You can verify the active detection capabilities using standard penetration testing tools directly from your terminal.
 
-1. Triggering the Reconnaissance Alarm
+### 1. Triggering the Reconnaissance Alarm
+
 Run a standard Nmap service version scan against the portal:
 
-Bash
+```bash
 nmap -sV -p 5000 127.0.0.1
-Result: The engine traps the raw socket probe (identifying the missing User-Agent signature typical of automated scanners), registers a SCAN alert, and drops the origin IP into the Active IPS Blocklist.
 
-2. Testing Injection Payloads
+```
+
+* **Result:** The engine traps the raw socket probe (identifying the missing `User-Agent` signature typical of automated scanners), registers a `SCAN` alert, and drops the origin IP into the Active IPS Blocklist.
+
+### 2. Testing Injection Payloads
+
 Submit malicious syntax via URL parameters or direct form entries:
 
-Plaintext
+```text
 admin' OR 1=1 --
-Result: The heuristic math catches the short-string bypass attempt, logs the exact parameter risk score, and immediately serves a 403 Forbidden restriction.
 
-# 📂 Repository Structure
+```
+
+* **Result:** The heuristic math catches the short-string bypass attempt, logs the exact parameter risk score, and immediately serves a `403 Forbidden` restriction.
+
+---
+
+## 📂 Repository Structure
+
+```text
 ├── app.py                   # Core engine, WAF middleware, and API endpoints
 ├── requirements.txt         # Project dependencies (Flask, Requests, etc.)
 ├── security.log             # Disk read/write telemetry event log
@@ -78,13 +98,27 @@ Result: The heuristic math catches the short-string bypass attempt, logs the exa
 └── templates/
     ├── index.html           # Interactive target validation portals
     └── dashboard.html       # Anti-caching Unified SOC Dashboard interface
-    
-# ⚠️ Educational Disclaimer
+
+```
+
+---
+
+## ⚠️ Educational Disclaimer
 
 This repository is developed strictly for educational research, defensive framework engineering, and authorized local testing environments. The author assumes no liability for unauthorized deployment or misconfiguration on production networks. Always ensure you have explicit written consent before actively probing external infrastructure.
 
-# 📜 License
-This project is licensed under the MIT License - see the LICENSE file for details. Feel free to fork, modify, integrate, and adapt this framework into your own defensive pipelines.
+---
 
-# 👨‍💻 Author
-Sarandeep Singh Cybersecurity Researcher
+## 📜 License
+
+This project is licensed under the **MIT License** - see the `LICENSE` file for details. Feel free to fork, modify, integrate, and adapt this framework into your own defensive pipelines.
+
+---
+
+## 👨‍💻 Author
+
+**Sarandeep Singh** *Cybersecurity Researcher*
+
+```
+
+```
