@@ -1,40 +1,29 @@
-# 🛡️ SentinelShield IDS/WAF
+🛡️ SentinelShield IDS/WAF
+A highly robust, heuristic-based Intrusion Detection System (IDS) and Web Application Firewall (WAF) featuring real-time telemetry, advanced threat parsing, and an active IPS blocklist.
 
-> **A highly robust, heuristic-based Intrusion Detection System (IDS) and Web Application Firewall (WAF) featuring real-time telemetry, advanced threat parsing, and an active IPS blocklist.**
+📖 Overview
+Modern web layers face a constant barrage of automated reconnaissance, brute-force floods, and sophisticated injection payloads. This project provides a lightweight, highly configurable security middleware that actively traps malicious traffic before it reaches your core application logic.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-brightgreen)](https://www.python.org/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/yourusername/your-repo)
+Coupled with a Unified SOC Dashboard, it provides blue teamers and security analysts with absolute visibility into live attack distributions, raw payload metrics, and immediate mitigation controls.
 
----
+✨ Key Features
+🧠 Advanced Heuristic Engine: Parses multi-part inputs to detect syntax anomalies, high symbol densities, and exact signature markers for SQLi, XSS, CMDi, LFI, and automated DDoS floods.
 
-## 📖 Overview
+🛑 Active IPS Blocklist (Jail): Automatically identifies aggressive scanning behavior (such as missing User-Agent headers or unauthorized directory enumeration) and drops malicious origins into a customizable time-locked penalty box.
 
-Modern web layers face a constant barrage of automated reconnaissance, brute-force floods, and sophisticated injection payloads. This project provides a lightweight, highly configurable security middleware that actively traps malicious traffic before it reaches your core application logic. 
+🍯 Dynamic Honeypot Routing: Employs decoy endpoints (/.env, /wp-admin, /backup.sql) to safely string automated scanners along while gathering comprehensive attacker profiling metrics.
 
-Coupled with a **Unified SOC Dashboard**, it provides blue teamers and security analysts with absolute visibility into live attack distributions, raw payload metrics, and immediate mitigation controls.
+📊 Unified SOC Dashboard: A responsive, live-updating monitoring console featuring anti-caching polling sockets, visual attack distribution charts, and direct one-click IP release controls.
 
----
+📥 Standardized CSV Reporting: Seamlessly export live incident telemetry for offline forensic auditing or external SIEM compliance.
 
-## ✨ Key Features
-
-* **🧠 Advanced Heuristic Engine:** Parses multi-part inputs to detect syntax anomalies, high symbol densities, and exact signature markers for `SQLi`, `XSS`, `CMDi`, `LFI`, and automated `DDoS` floods.
-* **🛑 Active IPS Blocklist (Jail):** Automatically identifies aggressive scanning behavior (such as missing `User-Agent` headers or unauthorized directory enumeration) and drops malicious origins into a customizable time-locked penalty box.
-* **🍯 Dynamic Honeypot Routing:** Employs decoy endpoints (`/.env`, `/wp-admin`, `/backup.sql`) to safely string automated scanners along while gathering comprehensive attacker profiling metrics.
-* **📊 Unified SOC Dashboard:** A responsive, live-updating monitoring console featuring anti-caching polling sockets, visual attack distribution charts, and direct one-click IP release controls.
-* **📥 Standardized CSV Reporting:** Seamlessly export live incident telemetry for offline forensic auditing or external SIEM compliance.
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
+🚀 Getting Started
+Prerequisites
 Ensure you have Python 3.8 or newer installed.
 
-```bash
+Bash
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
+git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
 cd your-repo-name
 
 # Create a clean virtual environment (optional but recommended)
@@ -85,4 +74,4 @@ This repository is developed strictly for educational research, defensive framew
 This project is licensed under the MIT License - see the LICENSE file for details. Feel free to fork, modify, integrate, and adapt this framework into your own defensive pipelines.
 
 👨‍💻 Author
-Sarandeep Singh Cybersecurity Researcher
+Sandeep Singh Cybersecurity Researcher
