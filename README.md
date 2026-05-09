@@ -1,4 +1,3 @@
-````markdown id="y7mp2d"
 # 🛡️ SentinelShield IDS/WAF
 
 > Advanced heuristic-based Intrusion Detection System (IDS) & Web Application Firewall (WAF) with real-time monitoring, honeypots, and active IP blocking.
@@ -114,4 +113,3 @@ If you found this project useful:
 
 # 🛡️ SentinelShield
 ### *Detect. Analyze. Defend.*
-````
