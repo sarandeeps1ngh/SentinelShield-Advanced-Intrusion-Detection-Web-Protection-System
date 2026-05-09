@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Finance Portal — WAF Lab</title>
+    <style>
+        :root {
+            --blue: #0056b3;
+            --blue-dark: #003d80;
+            --green: #28a745;
+            --red: #dc3545;
+            --bg: #eef2f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: #222;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px 16px;
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 860px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+        }
+        .dash-link {
+            text-decoration: none;
+            background: #1c2633;
+            color: #00e5ff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 7px 16px;
+            border-radius: 6px;
+            border: 1px solid #00e5ff33;
+            letter-spacing: 0.5px;
+            transition: 0.2s;
+        }
+        .dash-link:hover { background: #243447; }
+
+        .container {
+            background: white;
+            padding: 36px 36px 30px;
+            border-radius: 14px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 860px;
+        }
+
+        .portal-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .portal-header h1 {
+            color: var(--blue);
+            font-size: 26px;
+            margin: 0 0 10px;
+        }
+        .engine-status {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; color: #fff; background: var(--green);
+            padding: 5px 14px; border-radius: 20px;
+            font-weight: 600;
+        }
+        .engine-status span { animation: blink 1.5s infinite; }
+        @keyframes blink { 50%{opacity:0.4} }
+
+        /* Two-column attack lab layout */
+        .lab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+        @media (max-width: 600px) { .lab-grid { grid-template-columns: 1fr; } }
+
+        .attack-card {
+            border: 1px solid #e0e6ef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 10px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-header.blue  { background: #e8f0fb; color: var(--blue); }
+        .card-header.red   { background: #fdecea; color: var(--red); }
+        .card-body { padding: 16px; }
+
+        label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 13px; color: #444; }
+        input[type="text"], input[type="password"] {
+            width: 100%; padding: 9px 12px; border: 1px solid #ccd3dc;
+            border-radius: 6px; font-family: monospace; font-size: 13px;
+            color: #222; transition: 0.2s; outline: none;
+            background: #fafbfc;
+        }
+        input:focus { border-color: var(--blue); background: white; }
+        .form-group { margin-bottom: 14px; }
+        button.submit-btn {
+            width: 100%; padding: 10px;
+            border: none; border-radius: 6px;
+            font-size: 14px; font-weight: 700; cursor: pointer;
+            transition: 0.2s; letter-spacing: 0.3px;
+        }
+        .btn-search { background: var(--blue); color: white; }
+        .btn-search:hover { background: var(--blue-dark); }
+        .btn-login  { background: var(--red); color: white; }
+        .btn-login:hover  { background: #b71c1c; }
+
+        /* Quick Payload Buttons */
+        .payload-tips {
+            margin-top: 10px;
+        }
+        .payload-tips-label {
+            font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+            color: #999; margin-bottom: 6px;
+        }
+        .payload-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+        .chip {
+            font-size: 10px; padding: 3px 8px;
+            background: #f0f4ff; border: 1px solid #c5d2e8;
+            border-radius: 4px; cursor: pointer; font-family: monospace;
+            color: #334; transition: 0.15s; white-space: nowrap;
+        }
+        .chip:hover { background: #dce6ff; border-color: var(--blue); }
+
+        /* Info banner */
+        .info-banner {
+            background: #f0f7ff;
+            border: 1px solid #b3d4f5;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 12px;
+            color: #1a4a7a;
+            line-height: 1.6;
+        }
+        .info-banner strong { color: var(--blue); }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .info-item {
+            background: white;
+            border: 1px solid #dde8f5;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 11px;
+        }
+        .info-item .tag { font-weight: 700; color: var(--blue); display: block; margin-bottom: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="/dashboard" class="dash-link">🛡️ SOC Dashboard →</a>
+</div>
+
+<div class="container">
+    <div class="portal-header">
+        <h1>🏦 Global Finance Portal</h1>
+        <div class="engine-status"><span>●</span> SentinelShield WAF Active — Feed v{{ version }}</div>
+    </div>
+
+    <div class="lab-grid">
+
+        <!-- XSS / Search Vector -->
+        <div class="attack-card">
+            <div class="card-header blue">🔍 Employee Directory Search <span style="font-weight:400;opacity:0.6">(GET)</span></div>
+            <div class="card-body">
+                <form action="/search" method="GET">
+                    <div class="form-group">
+                        <label>Search Query</label>
+                        <input type="text" name="query" id="search-input" placeholder="e.g. John Smith">
+                    </div>
+                    <button type="submit" class="submit-btn btn-search">Search Directory</button>
+                </form>
+                <div class="payload-tips">
+                    <div class="payload-tips-label">Quick Payloads (click to load)</div>
+                    <div class="payload-chips">
+                        <span class="chip" onclick="setSearch(this)">&lt;script&gt;alert(1)&lt;/script&gt;</span>
+                        <span class="chip" onclick="setSearch(this)">&lt;img src=x onerror=alert(1)&gt;</span>
+                        <span class="chip" onclick="setSearch(this)">javascript:alert(document.cookie)</span>
+                        <span class="chip" onclick="setSearch(this)">&lt;svg onload=alert(1)&gt;</span>
+                        <span class="chip" onclick="setSearch(this)">hello world</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SQLi / Login Vector -->
+        <div class="attack-card">
+            <div class="card-header red">🔐 Admin Login <span style="font-weight:400;opacity:0.6">(POST)</span></div>
+            <div class="card-body">
+                <form action="/login" method="POST">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" id="login-input" placeholder="e.g. admin">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="submit-btn btn-login">Secure Login</button>
+                </form>
+                <div class="payload-tips">
+                    <div class="payload-tips-label">Quick Payloads (click to load)</div>
+                    <div class="payload-chips">
+                        <span class="chip" onclick="setLogin(this)">admin' OR 1=1 --</span>
+                        <span class="chip" onclick="setLogin(this)">' UNION SELECT 1,2,3--</span>
+                        <span class="chip" onclick="setLogin(this)">admin'; DROP TABLE users;--</span>
+                        <span class="chip" onclick="setLogin(this)">'; exec xp_cmdshell('dir')--</span>
+                        <span class="chip" onclick="setLogin(this)">admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="info-banner">
+        <strong>WAF Lab Info</strong> — Submit payloads and watch them get analyzed in real-time on the SOC Dashboard.
+        If your IP gets jailed, use the <strong>Release IP</strong> button on the dashboard to unlock instantly.
+        Jail time is <strong>60 seconds</strong> (auto-releases). The WAF scores each payload heuristically.
+        <div class="info-grid">
+            <div class="info-item"><span class="tag">🧠 Heuristic Engine</span>Scores entropy, token intent, symbol density &amp; structural anomalies</div>
+            <div class="info-item"><span class="tag">🩹 Virtual Patches</span>Regex signatures for known CVEs, hot-reloaded every 30s</div>
+            <div class="info-item"><span class="tag">🔒 IP Jail</span>60s jail on detection — release early from the dashboard</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setSearch(el) { document.getElementById('search-input').value = el.textContent; }
+    function setLogin(el)  { document.getElementById('login-input').value  = el.textContent; }
+</script>
+
+</body>
+</html>

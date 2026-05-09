@@ -1,0 +1,12 @@
+{
+    "version": "1.0.1",
+    "updated_at": "2026-05-05",
+    "virtual_patches": {
+        "CVE-2021-44228 (Log4Shell)": "\\$\\{jndi:(ldap|rmi|dns|nis|iiop|corba|nds|http):",
+        "CVE-2023-XXXXX (New API Exploit)": "\\/api\\/v1\\/admin\\?bypass=true"
+    },
+    "known_malicious_ips": [
+        "198.51.100.45",
+        "203.0.113.88"
+    ]
+}
