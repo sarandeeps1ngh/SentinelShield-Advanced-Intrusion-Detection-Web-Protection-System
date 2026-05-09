@@ -33,8 +33,8 @@ Coupled with a **Unified SOC Dashboard**, it provides blue teamers and security 
 Ensure you have Python 3.8 or newer installed.
 
 # Clone the repository
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System.git
+cd SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System
 
 # Create a clean virtual environment (optional but recommended)
 python -m venv venv
@@ -84,4 +84,4 @@ This repository is developed strictly for educational research, defensive framew
 This project is licensed under the MIT License - see the LICENSE file for details. Feel free to fork, modify, integrate, and adapt this framework into your own defensive pipelines.
 
 👨‍💻 Author
-Sarandeep Singh Cybersecurity Researcher & Framework Developer
+Sandeep Singh Cybersecurity Researcher
