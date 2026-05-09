@@ -71,7 +71,6 @@ admin' OR 1=1 --
 Result: The heuristic math catches the short-string bypass attempt, logs the exact parameter risk score, and immediately serves a 403 Forbidden restriction.
 
 # 📂 Repository Structure
-Plaintext
 ├── app.py                   # Core engine, WAF middleware, and API endpoints
 ├── requirements.txt         # Project dependencies (Flask, Requests, etc.)
 ├── security.log             # Disk read/write telemetry event log
@@ -79,7 +78,9 @@ Plaintext
 └── templates/
     ├── index.html           # Interactive target validation portals
     └── dashboard.html       # Anti-caching Unified SOC Dashboard interface
+    
 # ⚠️ Educational Disclaimer
+
 This repository is developed strictly for educational research, defensive framework engineering, and authorized local testing environments. The author assumes no liability for unauthorized deployment or misconfiguration on production networks. Always ensure you have explicit written consent before actively probing external infrastructure.
 
 # 📜 License
