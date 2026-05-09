@@ -1,10 +1,10 @@
-# 🛡️ Project Name (e.g., SentinelShield IDS/WAF)
+# 🛡️ SentinelShield IDS/WAF
 
 > **A highly robust, heuristic-based Intrusion Detection System (IDS) and Web Application Firewall (WAF) featuring real-time telemetry, advanced threat parsing, and an active IPS blocklist.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-brightgreen)](https://www.python.org/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/sarandeeps1ngh/SentinelShield-Advanced-Intrusion-Detection-Web-Protection-System)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/yourusername/your-repo)
 
 ---
 
@@ -34,7 +34,7 @@ Ensure you have Python 3.8 or newer installed.
 
 ```bash
 # Clone the repository
-git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/yourusername/your-repo-name.git)
+git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 
 # Create a clean virtual environment (optional but recommended)
@@ -56,11 +56,11 @@ Live SOC Dashboard: http://127.0.0.1:5000/dashboard
 You can verify the active detection capabilities using standard penetration testing tools directly from your terminal.
 
 1. Triggering the Reconnaissance Alarm
-Force an enumeration scan to hit the web-layer honeypot paths:
+Run a standard Nmap service version scan against the portal:
 
 Bash
 nmap -sV -p 5000 127.0.0.1
-Result: The engine traps unauthorized structural probes, registers a SCAN alert, and drops the origin into the Active IPS Blocklist.
+Result: The engine traps the raw socket probe (identifying the missing User-Agent signature typical of automated scanners), registers a SCAN alert, and drops the origin IP into the Active IPS Blocklist.
 
 2. Testing Injection Payloads
 Submit malicious syntax via URL parameters or direct form entries:
